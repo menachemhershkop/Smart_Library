@@ -42,20 +42,25 @@ export function removeBook(library, bookId){
 
 export function updateCopies(library, cookId, delta){
     let flag =false;
-    
     for (let i=0; i<library.length; i++){
         if (library[i].id == cookId){
+
+            
             if (delta > 0){
+
+                
             library[i].copies +=delta
             flag = true
         }
         if (delta < 0){
-            if ((library[i].copies - delta)<=0){
+          
+            
+            if ((library[i].copies + delta)<=0){
                 library[i].copies = 0
                 flag = true;
             }
         else{
-            library[i].copies -= delta
+            library[i].copies += delta
             flag =true;
         }
         }
@@ -68,9 +73,9 @@ export function updateCopies(library, cookId, delta){
     };
 }
 }
-addBook(library, {id:12, title:'drama', category:'action', copies:15, minCopies:3, expiresAt:'null'})
+// addBook(library, {id:12, title:'drama', category:'action', copies:15, minCopies:3, expiresAt:'null'})
 // console.log(addBook(library, {id:123, title:'drama', category:'action', copies:15, minCopies:3, expiresAt:'null'}))
 
 // console.log(library);
 // console.log(removeBook(library, 12));
-console.log(updateCopies(library,12,-3));
+// console.log(updateCopies(library,12,-35));
